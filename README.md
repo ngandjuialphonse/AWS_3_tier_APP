@@ -138,3 +138,4 @@ terraform destroy -auto-approve
 ![](./media/destroy.PNG)
 
 - Manually delete the S3 Bucket and DynamoDB in the AWS console
+MAKE sure you TO DO SO
