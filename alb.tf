@@ -20,7 +20,7 @@ module "alb_http_sg" {
 
 module "alb" {
   source          = "terraform-aws-modules/alb/aws"
-  version         = "~> 6.0"
+  version         = "~> 7.0"
   name            = var.alb_name
   vpc_id          = module.vpc.vpc_id
   subnets         = module.vpc.public_subnets
@@ -43,12 +43,12 @@ module "alb" {
       stickiness       = { "enabled" = true, "type" = "lb_cookie" }
       health_check = {
         enabled             = true
-        interval            = 30
+        interval            = 20
         path                = "/phpinfo.php"
         port                = "traffic-port"
-        healthy_threshold   = 3
-        unhealthy_threshold = 3
-        timeout             = 6
+        healthy_threshold   = 4
+        unhealthy_threshold = 4
+        timeout             = 8
         protocol            = "HTTP"
         matcher             = "200-399"
       }
